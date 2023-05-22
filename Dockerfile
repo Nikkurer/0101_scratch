@@ -3,7 +3,6 @@ FROM golang:1.19-alpine as builder
 
 WORKDIR /go/src/app
 COPY . .
-
 RUN chown nobody /go/src/app/upload
 RUN go mod download
 RUN CGO_ENABLED=0 go build -o /go/bin/app.bin cmd/main.go
